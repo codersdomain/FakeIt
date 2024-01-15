@@ -90,10 +90,9 @@ jobs:
         run: |
           # Add commands to install clang-16 here
           # For example, on Ubuntu, you can use apt
+          wget -qO- https://apt.llvm.org/llvm-snapshot.gpg.key | sudo tee /etc/apt/trusted.gpg.d/apt.llvm.org.asc
           #sudo add-apt-repository -y 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-17 main'
           sudo add-apt-repository -y 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main'
-          wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-          
           sudo apt-get update
           sudo apt-get install clang-16
         shell: bash
