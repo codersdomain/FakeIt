@@ -69,6 +69,13 @@ jobs:
             cxx_standard: 20
           }
           - {
+            name: "Ubuntu 22.04 Clang 16 C++23",
+            os: ubuntu-22.04,
+            build_type: Debug,
+            cc: "clang-16", cxx: "clang++-16",
+            cxx_standard: 23
+          }
+          - {
             name: "Ubuntu 22.04 Clang with sanitizers",
             os: ubuntu-22.04,
             build_type: Debug,
