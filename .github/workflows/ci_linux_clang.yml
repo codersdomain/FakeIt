@@ -69,10 +69,10 @@ jobs:
             cxx_standard: 20
           }
           - {
-            name: "Ubuntu 22.04 Clang 16 C++23",
+            name: "Ubuntu 22.04 Clang 17 C++23",
             os: ubuntu-22.04,
             build_type: Debug,
-            cc: "clang-16", cxx: "clang++-16",
+            cc: "clang-17", cxx: "clang++-17",
             cxx_standard: 23
           }
           - {
@@ -85,16 +85,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Clang-16 (Optional)
-        if: matrix.config.cc == 'clang-16'
+      - name: Install Clang-17 (Optional)
+        if: matrix.config.cc == 'clang-17'
         run: |
           # Add commands to install clang-16 here
           # For example, on Ubuntu, you can use apt
           wget -qO- https://apt.llvm.org/llvm-snapshot.gpg.key | sudo tee /etc/apt/trusted.gpg.d/apt.llvm.org.asc
-          #sudo add-apt-repository -y 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-17 main'
-          sudo add-apt-repository -y 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main'
+          sudo add-apt-repository -y 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-17 main'
+          #sudo add-apt-repository -y 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main'
           sudo apt-get update
-          sudo apt-get install clang-16
+          sudo apt-get install clang-17
         shell: bash
       
       - name: Build project
